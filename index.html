@@ -3,44 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amin Rožajac - Profesionalne elektroinstalacije</title>
+    <title>Amin Rožajac | Profesionalne elektroinstalacije Sarajevo</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <header id="main-nav">
+    <header id="navbar">
         <nav class="container">
             <div class="logo">
-                <i class="fas fa-bolt"></i> Amin Rožajac
+                <div class="logo-icon"><i class="fas fa-bolt"></i></div>
+                <span>Amin Rožajac</span>
             </div>
+            
             <ul class="nav-links">
                 <li><a href="#">Početna</a></li>
-                <li><a href="#">Usluge</a></li>
-                <li><a href="#">O meni</a></li>
+                <li><a href="#usluge">Usluge</a></li>
+                <li><a href="#o-meni">O meni</a></li>
                 <li><a href="#">Galerija</a></li>
                 <li><a href="#">Kontakt</a></li>
             </ul>
-            <a href="tel:+38761650217" class="btn-nav">
-                <i class="fas fa-phone-alt"></i> Pozovite
-            </a>
+
+            <div class="nav-cta">
+                <a href="tel:+38761650217" class="btn-call-nav">
+                    <i class="fas fa-phone-alt"></i> Pozovite
+                </a>
+            </div>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
             <h1>Profesionalne elektroinstalacije – Amin Rožajac</h1>
             <p>Sigurna, pouzdana i brza rješenja za dom i poslovne prostore.</p>
+            
             <div class="hero-btns">
                 <a href="tel:+38761650217" class="btn-primary">
                     <i class="fas fa-phone-alt"></i> Pozovite odmah
                 </a>
-                <a href="#kontakt" class="btn-secondary">
+                <a href="#" class="btn-secondary">
                     <i class="far fa-file-alt"></i> Zatražite ponudu
                 </a>
             </div>
-            <div class="scroll-indicator">
-                <div class="mouse"></div>
+
+            <div class="scroll-down">
+                <div class="mouse"><div class="wheel"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="usluge" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Naše usluge</h2>
+                <p>Nudimo kompletan spektar elektroinstalaterskih usluga za domaćinstva i poslovne prostore</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Postavljanje i popravak elektroinstalacija</h3>
+                    <p>Kompletne električne instalacije za nove objekte i renoviranje postojećih sistema.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="far fa-lightbulb"></i></div>
+                    <h3>Ugradnja utičnica, prekidača i rasvjete</h3>
+                    <p>Profesionalna montaža svih vrsta utičnica, prekidača i rasvjetnih tijela.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <h3>Popravak kvarova i hitne intervencije</h3>
+                    <p>Brza reakcija i rješavanje hitnih električnih kvarova 24/7.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Postavljanje osigurača i razvodnih ormara</h3>
+                    <p>Ugradnja i servis razvodnih ormara, osigurača i zaštitne opreme.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-sun"></i></div>
+                    <h3>Vanjska i LED rasvjeta</h3>
+                    <p>Instalacija spoljašnje rasvjete, LED sistema i dekorativnog osvjetljenja.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Pametne instalacije</h3>
+                    <p>Moderni smart home sistemi i automatizacija električnih instalacija.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="container about-flex">
+            <div class="about-image">
+                <img src="img/amin.png" alt="Amin Rožajac radni alat">
+            </div>
+
+            <div class="about-content">
+                <h2>O meni</h2>
+                <p>Zovem se <span class="highlight-blue">Amin Rožajac</span> i profesionalni sam elektroinstalater sa preko 10 godina iskustva u struci. Specijaliziran sam za sve vrste elektroinstalacija, od malih popravki do kompleksnih projekata.</p>
+                
+                <p>Moj pristup radu temelji se na stručnosti, brzini i pouzdanosti. Svaki projekat pristupam sa punom pažnjom i brigom o detaljima, koristeći isključivo kvalitetne materijale i pridržavajući se svih sigurnosnih standarda.</p>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="far fa-clock"></i>
+                        </div>
+                        <div class="feature-info">
+                            <h4>10+ godina iskustva</h4>
+                            <p>Dugogodišnje iskustvo u elektroinstalaterstvu</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="far fa-check-circle"></i>
+                        </div>
+                        <div class="feature-info">
+                            <h4>Pouzdanost</h4>
+                            <p>Kvalitetan rad sa garancijom</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="feature-info">
+                            <h4>Stručnost</h4>
+                            <p>Licencirani i certificirani elektroinstalater</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="feature-info">
+                            <h4>Pristupačne cijene</h4>
+                            <p>Transparentne i fer cijene bez skrivenih troškova</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
