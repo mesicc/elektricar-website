@@ -1,7 +1,8 @@
 :root {
-    --primary-color: #5468ff; /* Plava boja sa screenshota */
+    --primary-color: #5468ff; 
     --dark-color: #1a237e;
     --text-white: #ffffff;
+    --bg-light: #f8faff;
     --transition: all 0.3s ease-in-out;
 }
 
@@ -14,6 +15,7 @@
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
+    overflow-x: hidden; /* Sprečava horizontalno skrolovanje */
 }
 
 .container {
@@ -33,7 +35,6 @@ header {
     transition: var(--transition);
 }
 
-/* Stil kad se skrola (Screenshot 2) */
 header.scrolled {
     background: #ffffff;
     padding: 15px 0;
@@ -54,6 +55,7 @@ nav {
     font-weight: 600;
     font-size: 1.1rem;
     transition: var(--transition);
+    z-index: 1002;
 }
 
 header.scrolled .logo {
@@ -81,6 +83,7 @@ header.scrolled .logo-icon {
     display: flex;
     list-style: none;
     gap: 30px;
+    transition: var(--transition);
 }
 
 .nav-links a {
@@ -117,11 +120,22 @@ header.scrolled .nav-links a:hover {
     transform: translateY(-2px);
 }
 
+.menu-toggle {
+    display: none; /* Sakriveno na desktopu */
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+header.scrolled .menu-toggle {
+    color: var(--dark-color);
+}
+
 /* --- HERO SEKCIJA --- */
 .hero {
     height: 100vh;
     position: relative;
-    /* Slika koju si poslao */
     background: url('https://images.unsplash.com/photo-1467733238130-bb6846885316?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080') center/cover no-repeat;
     display: flex;
     align-items: center;
@@ -132,11 +146,7 @@ header.scrolled .nav-links a:hover {
 
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Plavi filter identičan slici 1 */
+    inset: 0;
     background: linear-gradient(135deg, rgba(45, 70, 185, 0.85) 0%, rgba(26, 35, 126, 0.85) 100%);
 }
 
@@ -176,93 +186,27 @@ header.scrolled .nav-links a:hover {
     transition: var(--transition);
 }
 
-.btn-primary {
-    background: var(--primary-color);
-    color: white;
-}
-
-.btn-secondary {
-    background: white;
-    color: var(--dark-color);
-}
+.btn-primary { background: var(--primary-color); color: white; }
+.btn-secondary { background: white; color: var(--dark-color); }
 
 .btn-primary:hover, .btn-secondary:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* Mouse Scroll Indikator */
-.scroll-down {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.mouse {
-    width: 26px;
-    height: 42px;
-    border: 2px solid white;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    padding-top: 8px;
-}
-
-.wheel {
-    width: 4px;
-    height: 8px;
-    background: white;
-    border-radius: 2px;
-    animation: scroll 2s infinite;
-}
-
-@keyframes scroll {
-    0% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(15px); }
-}
-
-/* RESPONZIVNOST (Mobile) */
-.menu-toggle {
-    display: none;
-    font-size: 1.5rem;
-    color: white;
-    cursor: pointer;
-}
-
-@media (max-width: 992px) {
-    .nav-links {
-        display: none; /* Sakrij za sad, ovdje bi išao mobilni meni */
-    }
-    
-    .menu-toggle {
-        display: block;
-    }
-    
-    header.scrolled .menu-toggle {
-        color: var(--dark-color);
-    }
-    
-    .hero-btns {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-
 /* --- SERVICES SECTION --- */
 .services-section {
-    padding: 80px 0;
-    background-color: #f8faff; /* Veoma svijetla plavkasta pozadina */
+    padding: 100px 0;
+    background-color: var(--bg-light);
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .section-header h2 {
-    color: #003380; /* Tamno plava boja kao na slici */
+    color: var(--dark-color);
     font-size: 2.2rem;
     font-weight: 700;
     margin-bottom: 15px;
@@ -275,10 +219,9 @@ header.scrolled .nav-links a:hover {
     margin: 0 auto;
 }
 
-/* Grid postavka */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 kolone na desktopu */
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
@@ -287,7 +230,7 @@ header.scrolled .nav-links a:hover {
     padding: 40px 30px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: var(--transition);
     border: 1px solid #edf2f7;
 }
 
@@ -297,16 +240,12 @@ header.scrolled .nav-links a:hover {
 }
 
 .service-icon {
-    width: 60px;
-    height: 60px;
-    background-color: #e6f0ff; /* Svijetlo plava pozadina za ikonu */
-    color: #3b82f6; /* Plava boja ikone */
+    width: 60px; height: 60px;
+    background-color: #e6f0ff;
+    color: var(--primary-color);
     border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: 25px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; margin-bottom: 25px;
 }
 
 .service-card h3 {
@@ -314,39 +253,7 @@ header.scrolled .nav-links a:hover {
     font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: 15px;
-    line-height: 1.4;
 }
-
-.service-card p {
-    color: #718096;
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-/* --- RESPONZIVNOST --- */
-
-/* Tableti (2 kolone) */
-@media (max-width: 992px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Mobiteli (1 kolona) */
-@media (max-width: 650px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .services-section {
-        padding: 50px 0;
-    }
-    
-    .services-header h2 {
-        font-size: 1.8rem;
-    }
-}
-
 
 /* --- ABOUT SECTION --- */
 .about-section {
@@ -360,42 +267,17 @@ header.scrolled .nav-links a:hover {
     gap: 60px;
 }
 
-/* Stil slike sa zaobljenim uglovima */
-.about-image {
-    flex: 1;
-}
-
+.about-image { flex: 1; }
 .about-image img {
     width: 100%;
-    border-radius: 24px; /* Zaobljeni uglovi kao na slici */
+    border-radius: 24px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    display: block;
 }
 
-.about-content {
-    flex: 1.2;
-}
+.about-content { flex: 1.2; }
+.about-content h2 { color: var(--dark-color); font-size: 2.5rem; margin-bottom: 25px; }
+.highlight-blue { color: var(--primary-color); font-weight: 600; }
 
-.about-content h2 {
-    color: #1e3a8a; /* Tamno plava */
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 25px;
-}
-
-.about-content p {
-    color: #4b5563;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-.highlight-blue {
-    color: #3b82f6;
-    font-weight: 600;
-}
-
-/* Karakteristike Grid (2x2 na desktopu) */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -403,67 +285,57 @@ header.scrolled .nav-links a:hover {
     margin-top: 40px;
 }
 
-.feature-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-}
-
+.feature-card { display: flex; align-items: flex-start; gap: 15px; }
 .feature-icon {
-    min-width: 48px;
-    height: 48px;
-    background-color: #eff6ff; /* Svijetlo plava pozadina ikone */
-    color: #3b82f6; /* Plava boja ikone */
+    min-width: 48px; height: 48px;
+    background-color: #eff6ff; color: var(--primary-color);
     border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     font-size: 1.2rem;
-}
-
-.feature-info h4 {
-    color: #111827;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-}
-
-.feature-info p {
-    font-size: 0.9rem;
-    color: #6b7280;
-    margin-bottom: 0;
-    line-height: 1.4;
 }
 
 /* --- RESPONZIVNOST --- */
 
-/* Za tablete - Smanjivanje razmaka */
-@media (max-width: 1024px) {
-    .about-flex {
-        gap: 40px;
+/* Mobilni i Tablet Meni */
+@media (max-width: 992px) {
+    .menu-toggle { display: block; }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        z-index: 1001;
     }
-    .about-content h2 {
-        font-size: 2rem;
+
+    .nav-links.active { right: 0; }
+
+    .nav-links a {
+        color: var(--dark-color) !important;
+        font-size: 1.4rem;
+        font-weight: 600;
     }
+
+    .nav-cta { display: none; } /* Sakrivamo dugme u navu na mobitelu */
+
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    
+    .hero h1 { font-size: 2.5rem; }
 }
 
-/* Za mobitele - Slaganje jedno ispod drugog */
+/* Mali Mobiteli */
 @media (max-width: 768px) {
-    .about-flex {
-        flex-direction: column; /* Slika ide iznad teksta */
-        text-align: left;
-    }
+    .about-flex { flex-direction: column; text-align: center; }
+    .about-image { order: -1; margin-bottom: 40px; }
+    
+    .services-grid { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
 
-    .about-image, .about-content {
-        width: 100%;
-    }
-
-    .features-grid {
-        grid-template-columns: 1fr; /* Na mobitelu jedna kolona za karakteristike */
-        gap: 25px;
-    }
-
-    .about-section {
-        padding: 60px 0;
-    }
+    .hero-btns { flex-direction: column; padding: 0 20px; }
 }
