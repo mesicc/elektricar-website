@@ -15,7 +15,7 @@
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    overflow-x: hidden; /* Sprečava horizontalno skrolovanje */
+    overflow-x: hidden;
 }
 
 .container {
@@ -24,7 +24,7 @@ body {
     padding: 0 20px;
 }
 
-/* --- NAVBAR --- */
+/* --- NAVBAR POČETNO (Transparentno) --- */
 header {
     position: fixed;
     top: 0;
@@ -59,7 +59,7 @@ nav {
 }
 
 header.scrolled .logo {
-    color: var(--dark-color);
+    color: var(--primary-color); /* Logo postaje plav pri skrolu */
 }
 
 .logo-icon {
@@ -72,6 +72,7 @@ header.scrolled .logo {
     justify-content: center;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: var(--transition);
 }
 
 header.scrolled .logo-icon {
@@ -95,7 +96,7 @@ header.scrolled .logo-icon {
 }
 
 header.scrolled .nav-links a {
-    color: #333;
+    color: #333; /* Slova postaju tamna pri skrolu */
 }
 
 header.scrolled .nav-links a:hover {
@@ -121,7 +122,7 @@ header.scrolled .nav-links a:hover {
 }
 
 .menu-toggle {
-    display: none; /* Sakriveno na desktopu */
+    display: none;
     font-size: 1.5rem;
     color: white;
     cursor: pointer;
@@ -129,7 +130,7 @@ header.scrolled .nav-links a:hover {
 }
 
 header.scrolled .menu-toggle {
-    color: var(--dark-color);
+    color: #333; /* Hamburger crn pri skrolu */
 }
 
 /* --- HERO SEKCIJA --- */
@@ -255,6 +256,12 @@ header.scrolled .menu-toggle {
     margin-bottom: 15px;
 }
 
+.service-card p {
+    color: #718096;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
 /* --- ABOUT SECTION --- */
 .about-section {
     padding: 100px 0;
@@ -275,7 +282,8 @@ header.scrolled .menu-toggle {
 }
 
 .about-content { flex: 1.2; }
-.about-content h2 { color: var(--dark-color); font-size: 2.5rem; margin-bottom: 25px; }
+.about-content h2 { color: var(--dark-color); font-size: 2.5rem; font-weight: 700; margin-bottom: 25px; }
+.about-content p { color: #4b5563; font-size: 1.05rem; line-height: 1.7; margin-bottom: 20px; }
 .highlight-blue { color: var(--primary-color); font-weight: 600; }
 
 .features-grid {
@@ -294,9 +302,10 @@ header.scrolled .menu-toggle {
     font-size: 1.2rem;
 }
 
-/* --- RESPONZIVNOST --- */
+.feature-info h4 { color: #111827; font-size: 1.1rem; font-weight: 700; margin-bottom: 5px; }
+.feature-info p { font-size: 0.9rem; color: #6b7280; line-height: 1.4; }
 
-/* Mobilni i Tablet Meni */
+/* --- RESPONZIVNOST (MOBILE & TABLET) --- */
 @media (max-width: 992px) {
     .menu-toggle { display: block; }
 
@@ -310,8 +319,10 @@ header.scrolled .menu-toggle {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 30px;
         box-shadow: -10px 0 30px rgba(0,0,0,0.1);
         z-index: 1001;
+        transition: 0.4s ease-in-out;
     }
 
     .nav-links.active { right: 0; }
@@ -322,20 +333,15 @@ header.scrolled .menu-toggle {
         font-weight: 600;
     }
 
-    .nav-cta { display: none; } /* Sakrivamo dugme u navu na mobitelu */
-
+    .nav-cta { display: none; }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
-    
     .hero h1 { font-size: 2.5rem; }
 }
 
-/* Mali Mobiteli */
 @media (max-width: 768px) {
     .about-flex { flex-direction: column; text-align: center; }
     .about-image { order: -1; margin-bottom: 40px; }
-    
     .services-grid { grid-template-columns: 1fr; }
     .features-grid { grid-template-columns: 1fr; }
-
     .hero-btns { flex-direction: column; padding: 0 20px; }
 }
